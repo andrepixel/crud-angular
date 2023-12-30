@@ -1,4 +1,4 @@
-export interface Games {
+export interface Game {
   id: string,
   name: string,
   company: string,
