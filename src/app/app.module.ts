@@ -4,20 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {GamesModule} from "./games/games.module";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { GamesModule } from './games/games.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
-    GamesModule
+    GamesModule,
+    MatToolbarModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

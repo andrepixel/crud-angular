@@ -1,22 +1,21 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {GamesComponent} from "./games/games/games.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'games'
+    redirectTo: 'games',
   },
   {
     path: 'games',
     pathMatch: 'full',
-    loadChildren: () => import('./games/games.module').then(m => m.GamesModule)
-  }
+    loadChildren: () =>
+      import('./games/games.module').then((m) => m.GamesModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
