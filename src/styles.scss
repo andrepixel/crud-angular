@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$colors: (
+  50: #7117EA,
+  100: #EA6060,
+  contrast: (
+    50: #ffff,
+    100: #ffff,
+  )
+);
+
+
+// Define a dark theme
+$primary: mat.define-palette($colors, 50);
+$accent: mat.define-palette(mat.$blue-palette);
+$warn: mat.define-palette(mat.$red-palette, 300);
+
+$theme: mat.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  )
+));
+
+// Apply the dark theme by default
+@include mat.core-theme($theme);
+@include mat.button-theme($theme);
+@include mat.all-component-themes($theme);
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
