@@ -1,5 +1,5 @@
 [
-  { "id": "1", "name": "Mario", "company": "Nintendo" },
-  { "id": "2", "name": "TLOU", "company": "Sony" },
-  { "id": "3", "name": "Halo", "company": "Microsoft Corporation" }
+  { "id": "1", "name": "Mario", "company": "Nintendo", "category": "Adventure" },
+  { "id": "2", "name": "TLOU", "company": "Sony", "category": "Action" },
+  { "id": "3", "name": "Halo", "company": "Microsoft Corporation", "category": "Action" }
 ]

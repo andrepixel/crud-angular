@@ -1,22 +1,17 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {GamesRoutingModule} from './games-routing.module';
-import {MatTableModule} from '@angular/material/table';
+import { GamesRoutingModule } from './games-routing.module';
 import { GamesComponent } from './components/games/games.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    GamesComponent
-  ],
+  declarations: [GamesComponent],
   imports: [
     CommonModule,
     GamesRoutingModule,
-    MatTableModule
+    SharedModule,
   ],
-  exports: [
-    GamesComponent
-  ]
+  exports: [GamesComponent],
 })
-export class GamesModule {
-}
+export class GamesModule {}
