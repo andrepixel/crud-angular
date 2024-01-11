@@ -4,6 +4,7 @@ import { GamesService } from '../../services/games.service';
 import { Game } from '../../dtos/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogGenericComponent } from 'src/app/shared/components/dialog-generic/dialog-generic.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -13,21 +14,30 @@ import { DialogGenericComponent } from 'src/app/shared/components/dialog-generic
 export class GamesComponent {
   games$: Observable<Game[]>;
 
-  displayedColumns: string[] = ['id', 'name', 'company', 'category'];
+  displayedColumns: string[] = ['id', 'name', 'company', 'category', 'actions'];
 
-  constructor(private service: GamesService, private dialog: MatDialog) {
-    this.games$ = service.getGames().pipe(
+  constructor(
+    private service: GamesService,
+    private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.games$ = this.service.getGames().pipe(
       catchError(() => {
-        this.onError("Não foi possível se comunicar com servidor.")
+        this.onError('Não foi possível se comunicar com servidor.');
 
         return of([]);
       })
     );
   }
 
-  onError(message: string){
+  onError(message: string) {
     this.dialog.open(DialogGenericComponent, {
-      data: message
+      data: message,
     });
+  }
+
+  addGame() {
+    this.router.navigate(['add'], { relativeTo: this.route });
   }
 }

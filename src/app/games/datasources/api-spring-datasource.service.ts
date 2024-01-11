@@ -7,15 +7,14 @@ import { Game } from '../dtos/game';
   providedIn: 'root',
 })
 export class ApiSpringDatasourceService {
-  private ApiPath: string = '/assets/api.json';
+  private ApiPath: string = '/api/games';
 
   constructor(private httpclient: HttpClient) {}
 
   getGames(): Observable<Game[]> {
     return this.httpclient.get<Game[]>(this.ApiPath).pipe(
       first(),
-      delay(1000),
-      tap((games) => console.log(games))
+      delay(1000)
     );
   }
 }

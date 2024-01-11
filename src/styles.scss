@@ -1,27 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
 
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 
 @include mat.core();
 
-// Define a dark theme
-$dark-theme: mat.define-dark-theme((
-  color: (
-    primary: mat.define-palette(mat.$pink-palette),
-    accent: mat.define-palette(mat.$blue-grey-palette),
+$pallete: (
+  50: #7117ea,
+  100: #ea6060,
+  200: #a5d7b5,
+  300: #81c898,
+  400: #67bc82,
+  500: #4db06d,
+  600: #45a163,
+  700: #3c8f57,
+  800: #357e4c,
+  900: #295e39,
+  A100: #adfff3,
+  A200: #7affec,
+  A400: #47ffe4,
+  A700: #2dffe0,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
   ),
-  // Only include `typography` and `density` in the default dark theme.
-  typography: mat.define-typography-config(),
-  density: 0,
-));
+);
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette($pallete, 50),
+      accent: mat.define-palette($pallete, 100),
+      warn: mat.define-palette(mat.$red-palette, 900),
+    ),
+    // Only include `typography` and `density` in the default dark theme.
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Define a light theme
-$light-theme: mat.define-light-theme((
-  color: (
-    primary: mat.define-palette(mat.$indigo-palette),
-    accent: mat.define-palette(mat.$pink-palette),
-  ),
-));
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette($pallete, 50),
+      accent: mat.define-palette($pallete, 100),
+      warn: mat.define-palette(mat.$red-palette, 900),
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Apply the dark theme by default
 @include mat.core-theme($dark-theme);
@@ -35,5 +76,12 @@ $light-theme: mat.define-light-theme((
   @include mat.button-color($light-theme);
 }
 
-html, body { height: 100%; }
-body { margin: 0; border: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  border: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

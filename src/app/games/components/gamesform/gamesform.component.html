@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-header>
+    <button mat-raised-button color="primary" (click)="backPage()">
+      Voltar
+      <mat-icon
+        aria-hidden="false"
+        aria-label=""
+        fontIcon="arrow_back"
+      ></mat-icon>
+    </button>
+  </mat-card-header>
+
+  <form [formGroup]="form" method="post">
+    <mat-form-field formControlName="name">
+      <input matInput placeholder="Name of the game" />
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field formControlName="company">
+      <input matInput placeholder="Name of the company" />
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field formControlName="category">
+      <mat-select>
+        <mat-option
+          *ngFor="let category of categorys"
+          [value]="category.value"
+          >{{ category.viewValue }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <div class="button">
+    <mat-card-actions align="start">
+      <button mat-raised-button (click)="cancel()">Cancelar</button>
+      <button mat-raised-button (click)="submit()" color="primary">
+        Confirmar
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>
