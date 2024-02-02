@@ -1,3 +1,26 @@
 .toolbar {
   justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.image_title {
+  height: 100px;
+}
+
+.title {
+  font-size: xx-large;
+  font-weight: bold;
+  font-style: oblique;
+  padding-top: 30px;
+  padding-left: 10px;
+  text-shadow: 1px 1px 5px rgb(219, 0, 0);
+}
+
+.background {
+  background-image: url(../assets/background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: auto;
 }

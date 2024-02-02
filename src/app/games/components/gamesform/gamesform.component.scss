@@ -1,13 +1,26 @@
 mat-card {
-  width: 80%;
+  width: 50%;
   margin: 2em auto;
 }
 
-.button {
+.button_back {
+  width: max-content;
+  margin-top: 1em;
+  margin-left: 19.3em;
+}
+
+.buttons_actions {
   display: flex;
   justify-content: center;
 }
 
-.button button {
+.buttons_actions button {
   margin-right: 20px;
+}
+
+.body {
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
 }

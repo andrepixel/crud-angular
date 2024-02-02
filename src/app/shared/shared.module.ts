@@ -8,10 +8,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [DialogGenericComponent, CategoryPipe],
@@ -24,16 +26,18 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     DialogGenericComponent,
+    CategoryPipe,
+    ReactiveFormsModule,
     MatIconModule,
     MatTableModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    CategoryPipe,
     MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
-    ReactiveFormsModule
+    MatInputModule,
+    MatSnackBarModule,
   ],
 })
 export class SharedModule {}

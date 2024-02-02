@@ -8,11 +8,7 @@ import { GamesformComponent } from './components/gamesform/gamesform.component';
 
 @NgModule({
   declarations: [GamesComponent, GamesformComponent],
-  imports: [
-    CommonModule,
-    GamesRoutingModule,
-    SharedModule,
-  ],
+  imports: [CommonModule, GamesRoutingModule, SharedModule],
   exports: [GamesComponent, GamesformComponent],
 })
 export class GamesModule {}

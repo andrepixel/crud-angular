@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Game } from '../dtos/game';
+import { GameDTO } from '../dtos/game.dto';
 import { ApiSpringDatasourceService } from '../datasources/api-spring-datasource.service';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GamesService {
+  constructor(private datasource: ApiSpringDatasourceService) {}
 
-  constructor(private datasource: ApiSpringDatasourceService) { }
-
-  getGames(): Observable<Game[]> {
+  getGames(): Observable<GameDTO[]> {
     return this.datasource.getGames();
+  }
+
+  saveGame(gameSaved: GameDTO): Observable<GameDTO> {
+    return this.datasource.saveGame(gameSaved);
   }
 }

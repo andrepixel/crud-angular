@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 import { GamesService } from '../../services/games.service';
-import { Game } from '../../dtos/game';
+import { GameDTO } from '../../dtos/game.dto';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogGenericComponent } from 'src/app/shared/components/dialog-generic/dialog-generic.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./games.component.scss'],
 })
 export class GamesComponent {
-  games$: Observable<Game[]>;
+  games$: Observable<GameDTO[]>;
 
   displayedColumns: string[] = ['id', 'name', 'company', 'category', 'actions'];
 

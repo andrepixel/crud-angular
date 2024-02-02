@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, delay, first, tap } from 'rxjs';
-import { Game } from '../dtos/game';
+import { Observable, delay, first } from 'rxjs';
+import { GameDTO } from '../dtos/game.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +11,15 @@ export class ApiSpringDatasourceService {
 
   constructor(private httpclient: HttpClient) {}
 
-  getGames(): Observable<Game[]> {
-    return this.httpclient.get<Game[]>(this.ApiPath).pipe(
-      first(),
-      delay(1000)
-    );
+  getGames(): Observable<GameDTO[]> {
+    return this.httpclient
+      .get<GameDTO[]>(this.ApiPath)
+      .pipe(first(), delay(1000));
+  }
+
+  saveGame(gameSaved: GameDTO): Observable<GameDTO> {
+    return this.httpclient
+      .post<GameDTO>(this.ApiPath, gameSaved)
+      .pipe(first());
   }
 }
